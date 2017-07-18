@@ -1,0 +1,28 @@
+{
+  "name": "qbot-messageio",
+  "version": "0.0.1",
+  "description": "Chatbot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "twilio": "^3.4.0",
+    "ciscospark": "^1.3.0",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6"
+  },
+  "engines": {
+    "node": "6.10.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/qbot-messageio"
+  },
+  "author": "Arka Majumdar (Message.io) <arka@message.io>",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "welcomeMessage": "Hi! You've just subscribed to updates from NotificationBot. Type `/unsubscribe` to unsubscribe.",
+  "unsubscribeMessage": "You've been unsubscribed to updates from NotificationBot. Type `/subscribe` to re-subscribe.",
+  "resubscribeMessage": "You've been re-subscribed to updates from NotificationBot. Type `/unsubscribe` to unsubscribe.",
+  "adminUnsubscribeMessage": "You've been unsubscribed by the administrator.",
+  "oneWayMessage": "You are not allowed to send messages back."
+}

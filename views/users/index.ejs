@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<%
+/*
+ * You may see Glitch complaining about errors in this document and that "Specia
+ * "Special characters must be escaped".
+ * 
+ * However, there are no errors in this file and Glitch is complaining because
+ * it does not understand the templating syntax that EJS uses to render this
+ * file on the server.
+ * 
+ * Do not try to escape the template delimiters yourself.
+ */
+%>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Welcome – NotificationBot from Message.io</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/users/app.css" rel="stylesheet">
+
+    <!-- Font Awesome!  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://message.io/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="https://message.io/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://message.io/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://message.io/favicon/manifest.json">
+    <link rel="mask-icon" href="https://message.io/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="https://message.io/favicon/favicon.ico">
+    <meta name="msapplication-config" content="https://message.io/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-custom navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-left logo"><img src="https://cdn.glitch.com/97da0c25-cb78-4fa8-bc73-82994fe8867e%2Fm-io-white.svg?1497907421399" /></div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">NotificationBot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/notify">Notify</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/users">Users</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- /start features -->
+    <div class="features cases">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Subscribed Users</h1>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>
+                    User
+                  </th>
+                  <th>
+                    Platform
+                  </th>
+                  <th>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.forEach(function(user) { %>
+                  <tr>
+                    <td class="user-name"><%= user.name %></td>
+                    <td class="platform-image">
+                      <% if ("ciscospark" in user) {%>
+                        <img src="https://cdn.glitch.com/b1d483ab-980e-455a-920f-56b7b1b605db%2Fspark.png?1499785820237" alt="Cisco Spark"/>
+                      <% } else if ("twilio" in user) { %>
+                        <img src="https://cdn.glitch.com/b1d483ab-980e-455a-920f-56b7b1b605db%2Ftwilio.png?1499785820358" alt="Twilio"/>
+                      <% } %>
+                    </td>
+                    <td class="close-user">
+                      <button type="button" class="close" aria-label="Close" tabindex="-1">
+                        <span aria-hidden="true">
+                          &times;
+                        </span>
+                      </button>
+                    </td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /end features -->
+
+    <%- include ../footer %>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#send-button").click(function() {
+          $.ajax({
+            method: "POST",
+            url: "/api/send",
+            data: $("#notify-field").val()
+          });
+        });
+        $(".close-user button.close").click(function() {
+          var parent = $(this).closest("tr");
+          parent.hide(150);
+          $.ajax({
+            method: "DELETE",
+            url: "/api/users/" + $(parent.children(".user-name")[0]).text()
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
